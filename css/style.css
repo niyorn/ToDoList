@@ -1,0 +1,170 @@
+:root {
+    --header-color: #ea5082;
+    --background: #efeded;
+    --input-color: rgba(255, 255, 255, 0.23);
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+
+    background-image: url(https://static.pexels.com/photos/2855/landscape-mountains-nature-lake.jpg) ;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+main {
+    width: 27em;
+    height: 45em;
+    margin-top:5%;
+    background-color: var(--background);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    overflow-x: hidden;
+    animation: slideInLeft 2s;
+}
+
+
+header {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 5em;
+
+    background-color: var(--header-color);
+    position:relative;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06), 0 3px 6px rgba(0,0,0,0.13);
+
+}
+
+header input {
+    width: 90%;
+    height: 3.5rem;
+
+    border: 0;
+    border-radius: 0.3rem 2rem 2rem 0.3rem;
+    outline: none;
+    background-color: var(--input-color);
+
+    color:white;
+
+    font-size:1em;
+
+    padding: 0 3em 0 1em;
+
+}
+
+header ::-webkit-input-placeholder {
+    color: white;
+}
+
+header button {
+    width:3.5rem;
+    height:3.5rem;
+    background-color:white;
+    border:0;
+    border-radius:50%;
+    position:absolute;
+    right:5%;
+}
+
+.fa-plus{
+    color:var(--header-color);
+}
+
+ul{
+    list-style:none;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+ul li{
+    position:relative;
+    display:flex;
+    align-items:center;
+    background-color:white;
+    width:90%;
+    min-height:3.5em;
+    margin: 0.4em;
+    border-radius:0.3rem;
+    padding: 0 3em 0 1em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition:  all 0.5s;
+}
+
+ul li:first-of-type{
+    margin-top:1em;
+}
+
+ul li button{
+    position:absolute;
+    right:2%;
+    top:0.4em;
+    width:2.4em;
+    height:80%;
+    background-color:white;
+    border:none;
+    cursor:pointer;
+}
+
+ul li button:focus{
+    outline:none;
+}
+
+ul li button i {
+    color:#a09f9f;
+    transition: 0.5s;
+    cursor:pointer;
+}
+
+ul li button i:hover {
+    color:var(--header-color);
+}
+
+ul:empty:after{
+  content: 'Je hebt geen taken';
+  margin-top:3em;
+  color:rgba(8, 7, 7, 0.56);
+}
+
+.verwijder{
+  transform:translateX(30em);
+}
+
+@keyframes slideInLeft{
+    from{
+        transform:translateX(-100vw);
+    }
+    to{
+        transform:translateX(0);
+    }
+}
+
+@media (max-width:27em){
+    body{
+        background-image:none;
+    }
+
+    main{
+        height:100vh;
+        margin:0;
+    }
+}
+
