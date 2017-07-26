@@ -7,6 +7,7 @@ var voegTaakButton = document.querySelector('header button');
 //Kijkt of de gebruiker een taak ingegevuld heeft
 function voegTaak() {
     var inputTaak = document.querySelector('header input').value;
+
     if (inputTaak) {
         voegTaakAanLijst(inputTaak); //voeg taak aan lijst
         resetTekst();
@@ -15,7 +16,6 @@ function voegTaak() {
 
 //Voegt taak aan lijst toe
 function voegTaakAanLijst(inputTaak) {
-
     var lijst = document.querySelector('UL');
     var taak = document.createElement('LI');
     taak.innerText = inputTaak; //voeg de tekst aan toe LI element
@@ -33,6 +33,12 @@ function voegTaakAanLijst(inputTaak) {
 //voeg taak aan lijst als de gebruiker op enter drukt
 function voegTaakAanLijstEnterPress(e){
   var taak = this.value;
+  
+  //Als er niks ingevuld word, geef dan niks door
+  if(taak.length == 0){
+    return false;
+  }
+
   if(e.key == 'Enter'){
     voegTaakAanLijst(taak);
     resetTekst();
@@ -40,6 +46,7 @@ function voegTaakAanLijstEnterPress(e){
 }
 
 function verwijderTaak() {
+  console.log(this.parentNode.parentNode);
     var lijst = this.parentNode.parentNode; // de lijst
     var item = this.parentNode; // de item
     item.classList.add('verwijder');
